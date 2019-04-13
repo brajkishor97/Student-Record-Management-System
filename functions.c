@@ -2,7 +2,7 @@
 
 /*------------------------------------------------DECLARATIONS OF FUNCTIONS-------------------------------------------------------------*/
 
-		
+
 /*------------------------------------------------------INSERTLISTS FUNCTION------------------------------------------------------------*/
 
 void insert_lists(record_node **listt1, record_node **listt2)
@@ -95,7 +95,7 @@ void delete_lists(record_node **listt1, record_node **listt2)
 					printf("Coplete LIST1 deleted successfully!!");
 				}
 				else
-				printf("The list is Already Empty");				
+				printf("The list is Already Empty");
 			}
 			break;
 			case 2:
@@ -120,7 +120,7 @@ void delete_lists(record_node **listt1, record_node **listt2)
 		printf("\nDo you want to DELETE another list[y/n]?\n");
 		fflush(stdin);
 		getchar();
-		choice= getchar();	
+		choice= getchar();
 	}
 }
 
@@ -468,7 +468,7 @@ void find_topper(record_node* sptr)
 	pptr=sptr;
 	topper=(record_node*)malloc(sizeof(record_node));
 	for(;tptr!=NULL;tptr=tptr->next)
-	{	
+	{
 		total=0;
 		for(pptr=sptr;pptr!=NULL;pptr=pptr->next)
 		{
@@ -484,7 +484,7 @@ void find_topper(record_node* sptr)
 			strcpy(topper->student_name,tptr->student_name);
 			strcpy(topper->subject_code,tptr->subject_code);
 			topper->marks=max;
-			topper->next=NULL;	
+			topper->next=NULL;
 		}//checking if that total marks are maximum and if that person is topper
 	}
 	printf("\nTopper is: %s and has obtained %d total marks\n", topper->student_name,max);
@@ -499,7 +499,7 @@ typedef struct popular_sub_tag
 		int avg_marks;
 		struct popular_sub_tag *next;
 	}pop_sub;
-	
+
 pop_sub* divide_popsub(pop_sub* lptr)
 {
 	pop_sub *fast ,*slow;
@@ -570,17 +570,17 @@ pop_sub* mergeself_popsub(pop_sub *lptr,pop_sub *ptr)
 		}
 	}
 	return head;
-}	
+}
 
-	
-	
+
+
 pop_sub* list_mergesort_popsub(pop_sub* sptr)
 {
 	pop_sub *ptr,*head,*tptr;
 	tptr=sptr;head=sptr;
 	if(tptr!=NULL && tptr->next!=NULL)
 	{
-		ptr=divide_popsub(tptr);	//divide 
+		ptr=divide_popsub(tptr);	//divide
 		tptr=list_mergesort_popsub(tptr);	//sort first half
 		ptr=list_mergesort_popsub(ptr);	//sort second half
 		head=mergeself_popsub(tptr,ptr);
@@ -588,7 +588,7 @@ pop_sub* list_mergesort_popsub(pop_sub* sptr)
 	return head;
 }
 
-	
+
 
 /*------------------------------------------------FINDKthPOPULARSUBJECT FUNCTION--------------------------------------------------------*/
 
@@ -629,7 +629,7 @@ void find_kth_popular_subject(record_node* sptr)
 	crptr=nptr;
 	ppptr=nptr;ttptr=NULL;
 	for(;ppptr!=NULL;ppptr=ppptr->next)
-	{	
+	{
 		prevptr=ppptr;
 		for(ttptr=ppptr->next;ttptr!=NULL;)
 		{
@@ -651,7 +651,7 @@ void find_kth_popular_subject(record_node* sptr)
 	{
 	printf("Subject code is:     %s     Avg Marks are     %d\n",crptr->subject_code,crptr->avg_marks);crptr=crptr->next;}
 	nptr=list_mergesort_popsub(nptr);
-	
+
 	crptr=nptr;printf("AFTER MERGESORT\n\n");
 	while(crptr!=NULL)
 	{
@@ -704,7 +704,7 @@ void find_failures(record_node *sptr)
         printf("Enter the minimum no. of subjects the student needs to pass:\n");
         scanf("%d",&k);
         for(;tptr!=NULL;tptr=tptr->next)
-	{	
+	{
 		count=0;
 		for(pptr=sptr;pptr!=NULL;pptr=pptr->next)
 		{
@@ -720,7 +720,7 @@ void find_failures(record_node *sptr)
 			fail->rollno=tptr->roll_no;
 			strcpy(fail->student_name,tptr->student_name);
 			fail->count=count;
-			fail->next=NULL;	
+			fail->next=NULL;
 		}
 		if(failptr == NULL)
 		{
@@ -740,7 +740,7 @@ void find_failures(record_node *sptr)
 		failptr=failptr->next;
 	}
  }
- 
+
 /*------------------------------------------------------LISTUNIQUE FUNCTION---------------------------------------------------------------*/
 
 record_node* list_unique(record_node *sptr)
@@ -748,7 +748,7 @@ record_node* list_unique(record_node *sptr)
 	record_node *tptr, *pptr, *prevptr, *delptr;int flag=0;
 	pptr=sptr;tptr=NULL;
 	for(;pptr!=NULL;pptr=pptr->next)
-	{	
+	{
 		flag=0;
 		prevptr=pptr;
 		for(tptr=pptr->next;tptr!=NULL;)
@@ -784,7 +784,7 @@ void list_union(record_node **listt1, record_node **listt2, record_node **listt3
 		toadd->roll_no=trvlist1->roll_no;
 		strcpy(toadd->student_name,trvlist1->student_name);
 		strcpy(toadd->subject_code,trvlist1->subject_code);
-		toadd->marks=trvlist1->marks;	
+		toadd->marks=trvlist1->marks;
 		toadd->next=NULL;
 		if(cplist1==NULL && toadd!=NULL)
 		{
@@ -802,7 +802,7 @@ void list_union(record_node **listt1, record_node **listt2, record_node **listt3
 		toadd->roll_no=trvlist2->roll_no;
 		strcpy(toadd->student_name,trvlist2->student_name);
 		strcpy(toadd->subject_code,trvlist2->subject_code);
-		toadd->marks=trvlist2->marks;	
+		toadd->marks=trvlist2->marks;
 		toadd->next=NULL;
 		if(cplist2==NULL && toadd!=NULL)
 		{
@@ -928,7 +928,7 @@ void list_intersection(record_node **listt1, record_node **listt2, record_node *
 		toadd->roll_no=trvlist1->roll_no;
 		strcpy(toadd->student_name,trvlist1->student_name);
 		strcpy(toadd->subject_code,trvlist1->subject_code);
-		toadd->marks=trvlist1->marks;	
+		toadd->marks=trvlist1->marks;
 		toadd->next=NULL;
 		if(cplist1==NULL && toadd!=NULL)
 		{
@@ -946,7 +946,7 @@ void list_intersection(record_node **listt1, record_node **listt2, record_node *
 		toadd->roll_no=trvlist2->roll_no;
 		strcpy(toadd->student_name,trvlist2->student_name);
 		strcpy(toadd->subject_code,trvlist2->subject_code);
-		toadd->marks=trvlist2->marks;	
+		toadd->marks=trvlist2->marks;
 		toadd->next=NULL;
 		if(cplist2==NULL && toadd!=NULL)
 		{
@@ -971,7 +971,7 @@ void list_intersection(record_node **listt1, record_node **listt2, record_node *
 				toadd->roll_no=trvlist1->roll_no;
 				strcpy(toadd->student_name,trvlist1->student_name);
 				strcpy(toadd->subject_code,trvlist1->subject_code);
-				toadd->marks=trvlist1->marks;	
+				toadd->marks=trvlist1->marks;
 				toadd->next=NULL;flag=1;
 			}
 			//saving the common elements into toadd node
@@ -1037,7 +1037,7 @@ void list_difference(record_node **listt1, record_node **listt2, record_node **l
 		toadd->roll_no=trvlist1->roll_no;
 		strcpy(toadd->student_name,trvlist1->student_name);
 		strcpy(toadd->subject_code,trvlist1->subject_code);
-		toadd->marks=trvlist1->marks;	
+		toadd->marks=trvlist1->marks;
 		toadd->next=NULL;
 		if(cplist1==NULL && toadd!=NULL)
 		{
@@ -1055,7 +1055,7 @@ void list_difference(record_node **listt1, record_node **listt2, record_node **l
 		toadd->roll_no=trvlist2->roll_no;
 		strcpy(toadd->student_name,trvlist2->student_name);
 		strcpy(toadd->subject_code,trvlist2->subject_code);
-		toadd->marks=trvlist2->marks;	
+		toadd->marks=trvlist2->marks;
 		toadd->next=NULL;
 		if(cplist2==NULL && toadd!=NULL)
 		{
@@ -1086,7 +1086,7 @@ void list_difference(record_node **listt1, record_node **listt2, record_node **l
 			toadd->roll_no=trvlist1->roll_no;
 			strcpy(toadd->student_name,trvlist1->student_name);
 			strcpy(toadd->subject_code,trvlist1->subject_code);
-			toadd->marks=trvlist1->marks;	
+			toadd->marks=trvlist1->marks;
 			toadd->next=NULL;
 		}
 		if(*listt3==NULL && toadd!=NULL)
@@ -1155,7 +1155,7 @@ record_node * list_difference_return(record_node* listt1, record_node* listt2, r
 			toadd->roll_no=trvlist1->roll_no;
 			strcpy(toadd->student_name,trvlist1->student_name);
 			strcpy(toadd->subject_code,trvlist1->subject_code);
-			toadd->marks=trvlist1->marks;	
+			toadd->marks=trvlist1->marks;
 			toadd->next=NULL;
 		}
 		if(listt3==NULL && toadd!=NULL)
@@ -1187,7 +1187,7 @@ void list_symmetric_difference(record_node **listt1, record_node **listt2,record
 		toadd->roll_no=trvlist1->roll_no;
 		strcpy(toadd->student_name,trvlist1->student_name);
 		strcpy(toadd->subject_code,trvlist1->subject_code);
-		toadd->marks=trvlist1->marks;	
+		toadd->marks=trvlist1->marks;
 		toadd->next=NULL;
 		if(cplist1==NULL && toadd!=NULL)
 		{
@@ -1205,7 +1205,7 @@ void list_symmetric_difference(record_node **listt1, record_node **listt2,record
 		toadd->roll_no=trvlist2->roll_no;
 		strcpy(toadd->student_name,trvlist2->student_name);
 		strcpy(toadd->subject_code,trvlist2->subject_code);
-		toadd->marks=trvlist2->marks;	
+		toadd->marks=trvlist2->marks;
 		toadd->next=NULL;
 		if(cplist2==NULL && toadd!=NULL)
 		{
@@ -1268,7 +1268,7 @@ record_node* list_mergesort(record_node* sptr)
 	tptr=sptr;head=sptr;
 	if(tptr!=NULL && tptr->next!=NULL)
 	{
-		ptr=divide(tptr);	//divide 
+		ptr=divide(tptr);	//divide
 		tptr=list_mergesort(tptr);	//sort first half
 		ptr=list_mergesort(ptr);	//sort second half
 		head=mergeself(tptr,ptr);
@@ -1346,7 +1346,7 @@ record_node* mergeself(record_node *lptr,record_node *ptr)
 		}
 	}
 	return head;
-}	
+}
 
 /*-----------------------------------------------//DECLARATIONS OF FUNCTIONS-------------------------------------------------------------*/
 

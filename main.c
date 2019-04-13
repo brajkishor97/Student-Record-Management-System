@@ -6,9 +6,9 @@ int main()
 	record_node* lptr=NULL, *list1=NULL, *list2=NULL, *list3=NULL;
 	int t,option;
 	char choice='y';
-	printf("\n\n---------------------------STUDENT RECORD--------------------------------\n\n");
+	printf("\n\n---------------------------STUDENT RECORD SYSTEM--------------------------------\n\n");
 	printf("\nP.S. ROLL NUMBER AND SUBJECT CODE ARE KEYS FOR THIS RECORD\n");
-	printf("\n\n-------------------------FUNCTIONS-------------------------------- \n\n");
+	printf("\n\n-------------------------USER FUNCTIONS-------------------------------- \n\n");
 	while(choice=='y' || choice=='Y')
    	{
    		printf("Plz Select the Action you want to perform on the record amongst these\n");
@@ -20,7 +20,7 @@ int main()
       		printf("\n6.IS RECORD FULL?\n");
       		printf("\n7.GET MAX MARKS IN PARTICULAR SUBJECT\n");
       		printf("\n8.FIND TOPPER\n");
-      		printf("\n9.FIND Kth POPULAR SUBJECT\n");
+      		printf("\n9.FIND kth POPULAR SUBJECT\n");
       		printf("\n10.FIND FAILURES\n");
       		printf("\n11.LIST UNIQUE\n");
       		printf("\n12.INSERT LISTS FOR  LIST FUNCTIONS\n");
@@ -118,4 +118,3 @@ int main()
 
 
 /*------------------------------------------------//Main function ends here--------------------------------------------------------------*/
-
